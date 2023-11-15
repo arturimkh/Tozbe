@@ -21,6 +21,8 @@
 		18EC94562B05391300B9E432 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94552B05391300B9E432 /* UserManager.swift */; };
 		18EC94592B053A5300B9E432 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94582B053A5300B9E432 /* RegistrationViewController.swift */; };
 		18EC945B2B053ACB00B9E432 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC945A2B053ACB00B9E432 /* RegistrationViewModel.swift */; };
+		18EC945F2B05443400B9E432 /* TextFieldsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC945E2B05443400B9E432 /* TextFieldsCollectionViewCell.swift */; };
+		18EC94632B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94622B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		18EC94552B05391300B9E432 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		18EC94582B053A5300B9E432 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		18EC945A2B053ACB00B9E432 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		18EC945E2B05443400B9E432 /* TextFieldsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsCollectionViewCell.swift; sourceTree = "<group>"; };
+		18EC94622B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,10 +193,28 @@
 		18EC94572B053A4300B9E432 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				18EC945C2B0543FE00B9E432 /* Views */,
 				18EC94582B053A5300B9E432 /* RegistrationViewController.swift */,
 				18EC945A2B053ACB00B9E432 /* RegistrationViewModel.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		18EC945C2B0543FE00B9E432 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18EC945D2B05440300B9E432 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		18EC945D2B05440300B9E432 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18EC945E2B05443400B9E432 /* TextFieldsCollectionViewCell.swift */,
+				18EC94622B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EC94632B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift in Sources */,
 				188E79AA2B04231D00CBAF36 /* AppCoordinator.swift in Sources */,
 				18EC945B2B053ACB00B9E432 /* RegistrationViewModel.swift in Sources */,
 				18EC94592B053A5300B9E432 /* RegistrationViewController.swift in Sources */,
+				18EC945F2B05443400B9E432 /* TextFieldsCollectionViewCell.swift in Sources */,
 				188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */,
 				188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */,
 				188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */,
