@@ -7,12 +7,12 @@
 
 import Foundation
 class BooksViewModel {
-    private let userManager: UserManager?
+    private let userManager: UserManager
     init(userManager: UserManager){
         self.userManager = userManager
     }
     public func didUserLoggedIn() -> Bool {
-        let state = UserManager.isUserLoggedIn()
+        let state = userManager.isUserLoggedIn()
         return state
     }
 }

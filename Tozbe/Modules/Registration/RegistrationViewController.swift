@@ -34,6 +34,7 @@ class RegistrationViewController: UIViewController {
         collectionView.delegate = self
         return collectionView
     }()
+    var dataSourceString: [String] = []
     init(viewModel: RegistrationViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -46,6 +47,7 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setCollectionView()
+        viewModel.delegate = self
     }
 }
 // MARK: - UI
@@ -88,10 +90,10 @@ extension RegistrationViewController: UICollectionViewDataSource{
             switch indexPath.row{
                 
             case Information.phone.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone)
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone,nessecary: true)
                 
             case Information.contact1.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone)
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone,nessecary: true)
                 
             case Information.contact2.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 2", image: .phone)
@@ -100,10 +102,10 @@ extension RegistrationViewController: UICollectionViewDataSource{
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 3", image: .phone)
                 
             case Information.timeOfDictaphone.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location)
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location,nessecary: true)
                 
             case Information.locationUpdate.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location)
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location,nessecary: true)
                 
             default:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone)
@@ -117,6 +119,7 @@ extension RegistrationViewController: UICollectionViewDataSource{
             
         case Sections.saveButton.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as! ButtonCollectionViewCell
+            cell.configure(delegate: self)
             return cell
             
         default:
@@ -127,5 +130,31 @@ extension RegistrationViewController: UICollectionViewDataSource{
 extension RegistrationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.insetBy(dx: 20, dy: 0).width, height: 60)
+    }
+}
+extension RegistrationViewController: ButtonCollectionViewCellDelegate {
+    func didTapSave() {
+        for section in 0..<collectionView.numberOfSections {
+            for item in 0..<collectionView.numberOfItems(inSection: section) {
+                let indexPath = IndexPath(item: item, section: section)
+                if let cell = collectionView.cellForItem(at: indexPath) {
+                    if let textFieldsCell = cell as? TextFieldsCollectionViewCell {
+                        let data = textFieldsCell.getData()
+                        dataSourceString.append(data)
+                    } else if let switchCell = cell as? SwitchCollectionViewCell {
+                        let data = switchCell.getDataIsOn()
+                        dataSourceString.append(data)
+                    }
+                }
+            }
+        }
+        viewModel.saveModel(dataSourceString)
+    }
+}
+extension RegistrationViewController: RegistrationViewModelDelegate {
+    func didLoadData() {
+        let mainVC = ControllerFactory.create(.main)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(mainVC, animated: true)
     }
 }

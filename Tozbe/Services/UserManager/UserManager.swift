@@ -8,13 +8,23 @@
 import Foundation
 
 struct UserManager {
-    private static let isLoggedInKey = "isLoggedIn"
+    private let isLoggedInKey = "isLoggedIn"
     
-    static func isUserLoggedIn() -> Bool {
+    func isUserLoggedIn() -> Bool {
         return UserDefaults.standard.bool(forKey: isLoggedInKey)
     }
     
-    static func setLoggedInStatus(_ isLoggedIn: Bool) {
+    func setLoggedInStatus(_ isLoggedIn: Bool) {
         UserDefaults.standard.set(isLoggedIn, forKey: isLoggedInKey)
+    }
+    func saveData(model: UserModel) {
+        if let encodedData = try? JSONEncoder().encode(model) {
+            UserDefaults.standard.set(encodedData, forKey: "userModel")
+        }
+    }
+    func getData() -> UserModel{
+        guard let savedData = UserDefaults.standard.data(forKey: "userModel") else {fatalError("no data")}
+        guard let data = try? JSONDecoder().decode(UserModel.self, from: savedData) else {fatalError("unable to decode")}
+        return data
     }
 }

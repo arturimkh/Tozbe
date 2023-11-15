@@ -13,4 +13,10 @@ enum ImageTextFieldTypes: String {
 struct TextFieldsCollectionViewCellViewModel {
     let text: String
     let image: ImageTextFieldTypes
+    let nessecary: Bool
+    init(text: String, image: ImageTextFieldTypes, nessecary: Bool = false) {
+        self.text = text
+        self.image = image
+        self.nessecary = nessecary
+    }
 }

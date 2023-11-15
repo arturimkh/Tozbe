@@ -10,6 +10,7 @@ import UIKit
 enum ControllerFactoryType {
     case books
     case registration
+    case main
 }
 
 final class ControllerFactory{
@@ -20,9 +21,14 @@ final class ControllerFactory{
             let viewModel = BooksViewModel(userManager: userManager)
             let viewController = BooksViewController(viewModel: viewModel)
             return viewController
-        case.registration:
-            let viewModel = RegistrationViewModel()
+        case .registration:
+            let userManager = UserManager()
+            let viewModel = RegistrationViewModel(userManager: userManager)
             let viewController = RegistrationViewController(viewModel: viewModel)
+            return viewController
+        case .main:
+            let viewModel = MainViewModel()
+            let viewController = MainViewController(viewModel: viewModel)
             return viewController
         }
     }

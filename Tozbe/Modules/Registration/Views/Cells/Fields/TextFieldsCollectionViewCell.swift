@@ -22,7 +22,6 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
     private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.delegate = self
         return textField
     }()
     private let nessecaryTextlabel: UILabel = {
@@ -43,16 +42,16 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
     }
     public func configure(with cellViewModel: TextFieldsCollectionViewCellViewModel) {
         let text = cellViewModel.text
-        if text == "Номер телефона" || text == "Доверенный контакт 1" || text == "Отправлять новую локацию" {
+        if cellViewModel.nessecary {
             nessecaryTextlabel.text = "*Обязательно"
         }
         textField.placeholder = text
         imageView.image = UIImage(systemName: cellViewModel.image.rawValue)
     }
-}
-// MARK: - TextFieldDelegate
-extension TextFieldsCollectionViewCell: UITextFieldDelegate {
-    
+    public func getData() -> String {
+        guard let text = textField.text else {return ""}
+        return text
+    }
 }
 // MARK: -UI
 private extension TextFieldsCollectionViewCell {

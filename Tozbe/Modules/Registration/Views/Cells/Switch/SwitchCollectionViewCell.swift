@@ -31,6 +31,9 @@ final class SwitchCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    public func getDataIsOn() -> String {
+        return switcher.isOn ? "on" : "off"
+    }
 }
 // MARK: - UI
 extension SwitchCollectionViewCell {
