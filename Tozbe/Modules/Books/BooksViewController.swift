@@ -15,19 +15,28 @@ final class BooksViewController: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets.zero
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(BooksCollectionViewCell.self, forCellWithReuseIdentifier: BooksCollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = false // Отключаем скроллинг
         return collectionView
     }()
-    
-    private let booksViewModel: BooksViewModel
+    private lazy var invisibleButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = true
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        return button
+    }()
+    private var imageDataSource: [BooksCellViewModel] = []
+    private let viewModel: BooksViewModel
     
 // MARK: - Init
-    init(booksViewModel: BooksViewModel) {
-        self.booksViewModel = booksViewModel
+    
+    init(viewModel: BooksViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,31 +49,58 @@ final class BooksViewController: UIViewController {
         view.backgroundColor = .white
         setView()
         setConstraints()
+        appendImageDataSource()
+    }
+    private func appendImageDataSource() {
+        Constants.arrayOfNameBooks.forEach { nameImage in
+            let image = UIImage(named: nameImage)
+            let cellViewModel = BooksCellViewModel(image: image)
+            imageDataSource.append(cellViewModel)
+        }
+    }
+    @objc
+    private func didTap() {
+        let isLoggedIn = viewModel.didUserLoggedIn()
+        if isLoggedIn {
+            
+        } else {
+            let registrationVC = ControllerFactory.create(.registration)
+            self.navigationController?.pushViewController(registrationVC, animated: true)
+        }
     }
 }
+
 // MARK: - UI
 private extension BooksViewController {
     func setView() {
         view.addSubview(booksCollectionView)
+        view.addSubview(invisibleButton)
     }
     func setConstraints() {
         NSLayoutConstraint.activate([
-            booksCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            booksCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            booksCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            booksCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -100)
+            booksCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            booksCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            booksCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            booksCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -250)
+        ])
+        
+        NSLayoutConstraint.activate([
+            invisibleButton.topAnchor.constraint(equalTo: booksCollectionView.bottomAnchor),
+            invisibleButton.leftAnchor.constraint(equalTo: view.leftAnchor),
+            invisibleButton.widthAnchor.constraint(equalToConstant: 150),
+            invisibleButton.heightAnchor.constraint(equalToConstant: 75)
         ])
     }
 }
 // MARK: - DataSource
 extension BooksViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return imageDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BooksCollectionViewCell.identifier, for: indexPath) as! BooksCollectionViewCell
+        cell.configure(with: imageDataSource[indexPath.row])
         return cell
     }
 }

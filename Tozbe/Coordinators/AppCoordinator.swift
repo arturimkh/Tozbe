@@ -26,7 +26,6 @@ final class AppCoordinator{
     func showBooks() {
         let booksVC = ControllerFactory.create(.books)
         let navCon = UINavigationController(rootViewController: booksVC)
-        navCon.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navCon
     }
 }

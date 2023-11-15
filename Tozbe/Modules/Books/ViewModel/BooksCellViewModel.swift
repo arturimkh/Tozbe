@@ -6,6 +6,7 @@
 //
 
 import Foundation
-class BooksViewModel{
-    
+import UIKit
+struct BooksCellViewModel{
+    let image: UIImage?
 }
