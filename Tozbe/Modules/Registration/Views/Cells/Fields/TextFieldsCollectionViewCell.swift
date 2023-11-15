@@ -25,6 +25,13 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
         textField.delegate = self
         return textField
     }()
+    private let nessecaryTextlabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        label.font = .systemFont(ofSize: 10)
+        return label
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
@@ -35,7 +42,11 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     public func configure(with cellViewModel: TextFieldsCollectionViewCellViewModel) {
-        textField.placeholder = cellViewModel.text
+        let text = cellViewModel.text
+        if text == "Номер телефона" || text == "Доверенный контакт 1" || text == "Отправлять новую локацию" {
+            nessecaryTextlabel.text = "*Обязательно"
+        }
+        textField.placeholder = text
         imageView.image = UIImage(systemName: cellViewModel.image.rawValue)
     }
 }
@@ -53,6 +64,13 @@ private extension TextFieldsCollectionViewCell {
     }
 
     func setConstraints() {
+        contentView.addSubview(nessecaryTextlabel)
+        NSLayoutConstraint.activate([
+            nessecaryTextlabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            nessecaryTextlabel.leftAnchor.constraint(equalTo: contentView.leftAnchor,constant: 15),
+            nessecaryTextlabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: 85),
+            nessecaryTextlabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),

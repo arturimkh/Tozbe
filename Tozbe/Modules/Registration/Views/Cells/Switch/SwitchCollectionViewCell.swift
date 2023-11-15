@@ -38,11 +38,12 @@ extension SwitchCollectionViewCell {
         contentView.addSubview(labelInfo)
         contentView.addSubview(switcher)
         NSLayoutConstraint.activate([
-            switcher.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            switcher.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,constant: 20),
             switcher.rightAnchor.constraint(equalTo: contentView.rightAnchor,constant: -10),
         ])
         NSLayoutConstraint.activate([
-            labelInfo.topAnchor.constraint(equalTo: contentView.topAnchor),
+            labelInfo.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
             labelInfo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             labelInfo.leftAnchor.constraint(equalTo: contentView.leftAnchor,constant: 10),
             labelInfo.rightAnchor.constraint(equalTo: switcher.leftAnchor)

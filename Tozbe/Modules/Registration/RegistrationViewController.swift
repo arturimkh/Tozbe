@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 40
+        layout.minimumLineSpacing = 35
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TextFieldsCollectionViewCell.self, forCellWithReuseIdentifier: TextFieldsCollectionViewCell.identifier)
         collectionView.register(SwitchCollectionViewCell.self, forCellWithReuseIdentifier: SwitchCollectionViewCell.identifier)
@@ -76,34 +76,49 @@ extension RegistrationViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         switch indexPath.section {
+            
         case Sections.information.rawValue:
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextFieldsCollectionViewCell.identifier, for: indexPath) as! TextFieldsCollectionViewCell
+            
             var cellViewModel: TextFieldsCollectionViewCellViewModel
+            
             switch indexPath.row{
+                
             case Information.phone.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone)
+                
             case Information.contact1.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone)
+                
             case Information.contact2.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 2", image: .phone)
+                
             case Information.contact3.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 3", image: .phone)
+                
             case Information.timeOfDictaphone.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location)
+                
             case Information.locationUpdate.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location)
+                
             default:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone)
             }
             cell.configure(with: cellViewModel)
             return cell
         case Sections.isLocationUpdate.rawValue:
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwitchCollectionViewCell.identifier, for: indexPath) as! SwitchCollectionViewCell
             return cell
+            
         case Sections.saveButton.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as! ButtonCollectionViewCell
             return cell
+            
         default:
             return UICollectionViewCell()
         }

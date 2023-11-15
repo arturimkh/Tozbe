@@ -83,6 +83,7 @@
 				188E79A82B04230A00CBAF36 /* Coordinators */,
 				188E79AB2B04232100CBAF36 /* Modules */,
 				188E79B22B0423F100CBAF36 /* Services */,
+				18EC946B2B055DBF00B9E432 /* Model */,
 				188E79AC2B04233700CBAF36 /* Common */,
 				188E79A22B0420C200CBAF36 /* Info.plist */,
 			);
@@ -245,6 +246,13 @@
 				18EC94692B05553D00B9E432 /* ButtonCollectionViewCell.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		18EC946B2B055DBF00B9E432 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

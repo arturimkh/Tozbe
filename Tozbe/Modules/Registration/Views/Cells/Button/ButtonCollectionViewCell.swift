@@ -35,11 +35,10 @@ private extension ButtonCollectionViewCell {
     func setConstraints() {
         contentView.addSubview(button)
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: contentView.topAnchor),
-            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,constant: 10),
             button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 40)
+            button.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 }
