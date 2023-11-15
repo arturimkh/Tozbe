@@ -24,9 +24,11 @@ class RegistrationViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 40
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TextFieldsCollectionViewCell.self, forCellWithReuseIdentifier: TextFieldsCollectionViewCell.identifier)
+        collectionView.register(SwitchCollectionViewCell.self, forCellWithReuseIdentifier: SwitchCollectionViewCell.identifier)
+        collectionView.register(ButtonCollectionViewCell.self, forCellWithReuseIdentifier: ButtonCollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -62,7 +64,7 @@ private extension RegistrationViewController {
 // MARK: - DataSource
 extension RegistrationViewController: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -95,6 +97,12 @@ extension RegistrationViewController: UICollectionViewDataSource{
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone)
             }
             cell.configure(with: cellViewModel)
+            return cell
+        case Sections.isLocationUpdate.rawValue:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwitchCollectionViewCell.identifier, for: indexPath) as! SwitchCollectionViewCell
+            return cell
+        case Sections.saveButton.rawValue:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as! ButtonCollectionViewCell
             return cell
         default:
             return UICollectionViewCell()

@@ -53,20 +53,21 @@ private extension TextFieldsCollectionViewCell {
     }
 
     func setConstraints() {
-        addSubview(imageView)
+        contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leftAnchor.constraint(equalTo: leftAnchor,constant: 15),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor,constant: 15),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 25)
         ])
-        addSubview(textField)
+        contentView.addSubview(textField)
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: topAnchor),
+            textField.topAnchor.constraint(equalTo: contentView.topAnchor),
             textField.leftAnchor.constraint(equalTo: imageView.rightAnchor,constant: 15),
-            textField.bottomAnchor.constraint(equalTo: bottomAnchor),
-            textField.centerYAnchor.constraint(equalTo: centerYAnchor),
+            textField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
 }
