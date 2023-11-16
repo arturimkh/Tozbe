@@ -81,7 +81,7 @@ private extension BooksViewController {
             booksCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             booksCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             booksCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            booksCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -250)
+            booksCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -225)
         ])
         
         NSLayoutConstraint.activate([
