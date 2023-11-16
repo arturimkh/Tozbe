@@ -21,6 +21,8 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var textField: UITextField = {
         let textField = UITextField()
+        textField.delegate = self
+        textField.returnKeyType = .done
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -51,6 +53,15 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
     public func getData() -> String {
         guard let text = textField.text else {return ""}
         return text
+    }
+}
+
+// MARK: - TextFieldDelegate
+extension TextFieldsCollectionViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 }
 // MARK: -UI

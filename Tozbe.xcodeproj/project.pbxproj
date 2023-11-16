@@ -12,6 +12,8 @@
 		180AD35F2B056DF400FE9B5F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD35E2B056DF400FE9B5F /* MainViewModel.swift */; };
 		188088072B063FC700B2A66E /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188088062B063FC700B2A66E /* BookViewController.swift */; };
 		188088092B06421F00B2A66E /* richDad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 188088082B06421F00B2A66E /* richDad.pdf */; };
+		1880880D2B06677A00B2A66E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1880880C2B06677A00B2A66E /* IQKeyboardManagerSwift */; };
+		188088102B06697900B2A66E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880880F2B06697900B2A66E /* TextField.swift */; };
 		188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79942B0420C000CBAF36 /* AppDelegate.swift */; };
 		188E79972B0420C000CBAF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79962B0420C000CBAF36 /* SceneDelegate.swift */; };
 		188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79982B0420C000CBAF36 /* BooksViewController.swift */; };
@@ -38,6 +40,7 @@
 		180AD35E2B056DF400FE9B5F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		188088062B063FC700B2A66E /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		188088082B06421F00B2A66E /* richDad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = richDad.pdf; sourceTree = "<group>"; };
+		1880880F2B06697900B2A66E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		188E79912B0420C000CBAF36 /* Tozbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tozbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E79942B0420C000CBAF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E79962B0420C000CBAF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1880880D2B06677A00B2A66E /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +109,14 @@
 			path = BooksPdfs;
 			sourceTree = "<group>";
 		};
+		1880880E2B06696C00B2A66E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1880880F2B06697900B2A66E /* TextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		188E79882B0420C000CBAF36 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +138,7 @@
 			children = (
 				188E79A82B04230A00CBAF36 /* Coordinators */,
 				188E79AB2B04232100CBAF36 /* Modules */,
+				1880880E2B06696C00B2A66E /* View */,
 				188E79B22B0423F100CBAF36 /* Services */,
 				18EC946B2B055DBF00B9E432 /* Model */,
 				188E79AC2B04233700CBAF36 /* Common */,
@@ -318,6 +331,9 @@
 			dependencies = (
 			);
 			name = Tozbe;
+			packageProductDependencies = (
+				1880880C2B06677A00B2A66E /* IQKeyboardManagerSwift */,
+			);
 			productName = Tozbe;
 			productReference = 188E79912B0420C000CBAF36 /* Tozbe.app */;
 			productType = "com.apple.product-type.application";
@@ -346,6 +362,9 @@
 				Base,
 			);
 			mainGroup = 188E79882B0420C000CBAF36;
+			packageReferences = (
+				1880880B2B06677A00B2A66E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 188E79922B0420C000CBAF36 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -376,6 +395,7 @@
 				180AD3592B055E0F00FE9B5F /* UserModel.swift in Sources */,
 				18EC94632B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift in Sources */,
 				188E79AA2B04231D00CBAF36 /* AppCoordinator.swift in Sources */,
+				188088102B06697900B2A66E /* TextField.swift in Sources */,
 				18EC945B2B053ACB00B9E432 /* RegistrationViewModel.swift in Sources */,
 				18EC94592B053A5300B9E432 /* RegistrationViewController.swift in Sources */,
 				18EC945F2B05443400B9E432 /* TextFieldsCollectionViewCell.swift in Sources */,
@@ -460,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -514,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -600,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1880880B2B06677A00B2A66E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1880880C2B06677A00B2A66E /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1880880B2B06677A00B2A66E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 188E79892B0420C000CBAF36 /* Project object */;
 }

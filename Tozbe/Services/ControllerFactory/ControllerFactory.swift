@@ -28,7 +28,8 @@ final class ControllerFactory{
             let viewController = RegistrationViewController(viewModel: viewModel)
             return viewController
         case .main:
-            let viewModel = MainViewModel()
+            let userManager = UserManager()
+            let viewModel = MainViewModel(userManager: userManager)
             let viewController = MainViewController(viewModel: viewModel)
             return viewController
         case .book(let name):
