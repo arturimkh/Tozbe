@@ -19,7 +19,7 @@ final class BooksViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.isScrollEnabled = false // Отключаем скроллинг
+        collectionView.isScrollEnabled = false
         return collectionView
     }()
     private lazy var invisibleButton: UIButton = {
@@ -88,7 +88,7 @@ private extension BooksViewController {
             invisibleButton.topAnchor.constraint(equalTo: booksCollectionView.bottomAnchor),
             invisibleButton.leftAnchor.constraint(equalTo: view.leftAnchor),
             invisibleButton.widthAnchor.constraint(equalToConstant: 150),
-            invisibleButton.heightAnchor.constraint(equalToConstant: 75)
+            invisibleButton.heightAnchor.constraint(equalToConstant: 130)
         ])
     }
 }

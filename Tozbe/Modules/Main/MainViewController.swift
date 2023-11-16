@@ -89,12 +89,15 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
         composeVC.messageComposeDelegate = self
         let userModel = viewModel.getUserModel()
         composeVC.recipients = [userModel.phoneContact1,userModel.phoneContact2,userModel.phoneContact3]
-        composeVC.body = sosTextField.text!
+        guard let text = sosTextField.text else {return}
         
-        if MFMessageComposeViewController.canSendText() {
-            self.present(composeVC, animated: true, completion: nil)
-        } else {
-            print("Can't send messages.")
+        let location = viewModel.getGoogleUrl { googleUrl in
+            composeVC.body = "\(text) \(googleUrl)"
+            if MFMessageComposeViewController.canSendText() {
+                self.present(composeVC, animated: true, completion: nil)
+            } else {
+                print("Can't send messages.")
+            }
         }
     }
     @objc

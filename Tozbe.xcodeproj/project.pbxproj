@@ -14,6 +14,7 @@
 		188088092B06421F00B2A66E /* richDad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 188088082B06421F00B2A66E /* richDad.pdf */; };
 		1880880D2B06677A00B2A66E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1880880C2B06677A00B2A66E /* IQKeyboardManagerSwift */; };
 		188088102B06697900B2A66E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880880F2B06697900B2A66E /* TextField.swift */; };
+		188088122B069D5000B2A66E /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188088112B069D5000B2A66E /* MapService.swift */; };
 		188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79942B0420C000CBAF36 /* AppDelegate.swift */; };
 		188E79972B0420C000CBAF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79962B0420C000CBAF36 /* SceneDelegate.swift */; };
 		188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79982B0420C000CBAF36 /* BooksViewController.swift */; };
@@ -41,6 +42,7 @@
 		188088062B063FC700B2A66E /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		188088082B06421F00B2A66E /* richDad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = richDad.pdf; sourceTree = "<group>"; };
 		1880880F2B06697900B2A66E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		188088112B069D5000B2A66E /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		188E79912B0420C000CBAF36 /* Tozbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tozbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E79942B0420C000CBAF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E79962B0420C000CBAF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				180AD35C2B056DE200FE9B5F /* MainViewController.swift */,
 				180AD35E2B056DF400FE9B5F /* MainViewModel.swift */,
+				188088112B069D5000B2A66E /* MapService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				18EC94532B05385800B9E432 /* BooksViewModel.swift in Sources */,
 				180AD35F2B056DF400FE9B5F /* MainViewModel.swift in Sources */,
 				18EC946A2B05553D00B9E432 /* ButtonCollectionViewCell.swift in Sources */,
+				188088122B069D5000B2A66E /* MapService.swift in Sources */,
 				18EC94562B05391300B9E432 /* UserManager.swift in Sources */,
 				180AD35D2B056DE200FE9B5F /* MainViewController.swift in Sources */,
 				188088072B063FC700B2A66E /* BookViewController.swift in Sources */,
