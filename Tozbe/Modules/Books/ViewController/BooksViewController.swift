@@ -105,6 +105,14 @@ extension BooksViewController: UICollectionViewDataSource {
     }
 }
 // MARK: - Delegate
+extension BooksViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let pdfBookVc = ControllerFactory.create(.book(Constants.arrayOfNameBooks[indexPath.row]))
+        self.navigationController?.pushViewController(pdfBookVc, animated: true)
+    }
+}
+
+// MARK: - DelegateFlowLayout
 extension BooksViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.bounds.width

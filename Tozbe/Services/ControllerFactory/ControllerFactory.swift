@@ -11,6 +11,7 @@ enum ControllerFactoryType {
     case books
     case registration
     case main
+    case book(String)
 }
 
 final class ControllerFactory{
@@ -29,6 +30,9 @@ final class ControllerFactory{
         case .main:
             let viewModel = MainViewModel()
             let viewController = MainViewController(viewModel: viewModel)
+            return viewController
+        case .book(let name):
+            let viewController = BookViewController(name: name)
             return viewController
         }
     }

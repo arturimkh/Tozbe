@@ -10,6 +10,8 @@
 		180AD3592B055E0F00FE9B5F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD3582B055E0F00FE9B5F /* UserModel.swift */; };
 		180AD35D2B056DE200FE9B5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD35C2B056DE200FE9B5F /* MainViewController.swift */; };
 		180AD35F2B056DF400FE9B5F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD35E2B056DF400FE9B5F /* MainViewModel.swift */; };
+		188088072B063FC700B2A66E /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188088062B063FC700B2A66E /* BookViewController.swift */; };
+		188088092B06421F00B2A66E /* richDad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 188088082B06421F00B2A66E /* richDad.pdf */; };
 		188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79942B0420C000CBAF36 /* AppDelegate.swift */; };
 		188E79972B0420C000CBAF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79962B0420C000CBAF36 /* SceneDelegate.swift */; };
 		188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79982B0420C000CBAF36 /* BooksViewController.swift */; };
@@ -34,6 +36,8 @@
 		180AD3582B055E0F00FE9B5F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		180AD35C2B056DE200FE9B5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		180AD35E2B056DF400FE9B5F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		188088062B063FC700B2A66E /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		188088082B06421F00B2A66E /* richDad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = richDad.pdf; sourceTree = "<group>"; };
 		188E79912B0420C000CBAF36 /* Tozbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tozbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E79942B0420C000CBAF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E79962B0420C000CBAF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,23 @@
 				180AD35E2B056DF400FE9B5F /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		188088052B063FAF00B2A66E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				188E79982B0420C000CBAF36 /* BooksViewController.swift */,
+				188088062B063FC700B2A66E /* BookViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1880880A2B06425500B2A66E /* BooksPdfs */ = {
+			isa = PBXGroup;
+			children = (
+				188088082B06421F00B2A66E /* richDad.pdf */,
+			);
+			path = BooksPdfs;
 			sourceTree = "<group>";
 		};
 		188E79882B0420C000CBAF36 = {
@@ -153,6 +174,7 @@
 		188E79AE2B04235100CBAF36 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1880880A2B06425500B2A66E /* BooksPdfs */,
 				188E799D2B0420C200CBAF36 /* Assets.xcassets */,
 				188E799F2B0420C200CBAF36 /* LaunchScreen.storyboard */,
 			);
@@ -162,7 +184,7 @@
 		188E79B12B0423C300CBAF36 /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				188E79982B0420C000CBAF36 /* BooksViewController.swift */,
+				188088052B063FAF00B2A66E /* ViewController */,
 				18EC94512B0537DE00B9E432 /* ViewModel */,
 				18EC94492B05027500B9E432 /* View */,
 			);
@@ -340,6 +362,7 @@
 			files = (
 				188E79A12B0420C200CBAF36 /* LaunchScreen.storyboard in Resources */,
 				188E799E2B0420C200CBAF36 /* Assets.xcassets in Resources */,
+				188088092B06421F00B2A66E /* richDad.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +390,7 @@
 				18EC946A2B05553D00B9E432 /* ButtonCollectionViewCell.swift in Sources */,
 				18EC94562B05391300B9E432 /* UserManager.swift in Sources */,
 				180AD35D2B056DE200FE9B5F /* MainViewController.swift in Sources */,
+				188088072B063FC700B2A66E /* BookViewController.swift in Sources */,
 				18EC944F2B05335800B9E432 /* Constants.swift in Sources */,
 				18EC94672B05529800B9E432 /* SwitchCollectionViewCell.swift in Sources */,
 			);
