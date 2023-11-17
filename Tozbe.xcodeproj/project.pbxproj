@@ -558,6 +558,7 @@
 				DEVELOPMENT_TEAM = R82UJBY7FF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tozbe/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow on location usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -585,6 +586,7 @@
 				DEVELOPMENT_TEAM = R82UJBY7FF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tozbe/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow on location usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

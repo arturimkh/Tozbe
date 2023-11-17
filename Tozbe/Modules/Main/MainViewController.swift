@@ -7,7 +7,8 @@
 
 import UIKit
 import MessageUI
-class MainViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+import AVFoundation
+class MainViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
     
     private let grayLabel: UILabel = {
         let label = UILabel()
@@ -70,11 +71,25 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
     }()
     private let viewModel: MainViewModel
     
+    var audioRecorder: AVAudioRecorder!
+    var documentInteractionController: UIDocumentInteractionController?
+
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        createDocumentsDirectoryIfNeeded()
+
     }
-    
+    func createDocumentsDirectoryIfNeeded() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+        do {
+            try FileManager.default.createDirectory(at: documentsDirectory, withIntermediateDirectories: true, attributes: nil)
+            print("Директория 'Документы' создана успешно.")
+        } catch {
+            print("Ошибка при создании директории 'Документы': \(error.localizedDescription)")
+        }
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -84,35 +99,103 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
         setView()
         setConstraints()
     }
-    func displayMessageInterface() {
+    private func displayMessageInterface() {
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
         let userModel = viewModel.getUserModel()
         composeVC.recipients = [userModel.phoneContact1,userModel.phoneContact2,userModel.phoneContact3]
         guard let text = sosTextField.text else {return}
         
-        let location = viewModel.getGoogleUrl { googleUrl in
-            composeVC.body = "\(text) \(googleUrl)"
-            if MFMessageComposeViewController.canSendText() {
-                self.present(composeVC, animated: true, completion: nil)
-            } else {
-                print("Can't send messages.")
-            }
+        let location = viewModel.getGoogleUrl {[weak self] googleUrl in
+            guard let self = self else {return}
+            self.showMessageViewController(composeVC, text: "\(text) \(googleUrl)")
+        }
+    }
+    private func showMessageViewController(_ viewController: MFMessageComposeViewController, text: String) {
+        viewController.body = text
+        if MFMessageComposeViewController.canSendText() {
+            self.present(viewController, animated: true, completion: nil)
+        } else {
+            print("Can't send messages.")
+        }
+    }
+    
+    func startRecording() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recordedAudio.wav")
+
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            AVSampleRateKey: 44100,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+        } catch {
+            print("Ошибка при настройке записи аудио: \(error.localizedDescription)")
+        }
+    }
+
+    func stopRecording() {
+        audioRecorder.stop()
+    }
+
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    private func saveAudioFile(_ audioFileURL: URL) {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd_HHmmss"
+        let fileName = "audio_\(formatter.string(from: Date())).wav"
+
+        let destinationURL = documentsDirectory.appendingPathComponent(fileName)
+
+        do {
+            try FileManager.default.copyItem(at: audioFileURL, to: destinationURL)
+            shareFile(at: destinationURL)
+            print("Аудиофайл успешно сохранен: \(destinationURL)")
+        } catch {
+            print("Ошибка при сохранении аудиофайла: \(error.localizedDescription)")
         }
     }
     @objc
     private func didTapSos() {
         stopButton.isHidden = false
         attentionAlert.isHidden = false
+        if audioRecorder == nil || !audioRecorder.isRecording {
+            startRecording()
+            view.backgroundColor = .red
+        }
         displayMessageInterface()
     }
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    // Вызывается при необходимости поделиться файлом
+    func shareFile(at filePath: URL) {
+        documentInteractionController = UIDocumentInteractionController(url: filePath)
+        documentInteractionController?.delegate = self
+        documentInteractionController?.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+    }
+
     @objc
     private func didTapStop() {
         stopButton.isHidden = true
         attentionAlert.isHidden = true
+        stopRecording()
+        view.backgroundColor = .white
+    }
+}
+extension MainViewController: AVAudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        saveAudioFile(recorder.url)
     }
 }
 // MARK: - TextFieldDelegate
