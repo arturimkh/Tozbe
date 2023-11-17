@@ -8,7 +8,8 @@
 import UIKit
 import MessageUI
 import AVFoundation
-class MainViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
+
+class MainViewController: UIViewController {
     
     private let grayLabel: UILabel = {
         let label = UILabel()
@@ -69,26 +70,17 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
         button.layer.cornerRadius = 10
         return button
     }()
+    
     private let viewModel: MainViewModel
     
     var audioRecorder: AVAudioRecorder!
+    
     var documentInteractionController: UIDocumentInteractionController?
 
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        createDocumentsDirectoryIfNeeded()
 
-    }
-    func createDocumentsDirectoryIfNeeded() {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-        do {
-            try FileManager.default.createDirectory(at: documentsDirectory, withIntermediateDirectories: true, attributes: nil)
-            print("Директория 'Документы' создана успешно.")
-        } catch {
-            print("Ошибка при создании директории 'Документы': \(error.localizedDescription)")
-        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -98,6 +90,35 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
         view.backgroundColor = .white
         setView()
         setConstraints()
+        createDocumentsDirectoryIfNeeded()
+    }
+    
+    @objc
+    private func didTapStop() {
+        stopButton.isHidden = true
+        attentionAlert.isHidden = true
+        stopRecording()
+        view.backgroundColor = .white
+    }
+    @objc
+    private func didTapSos() {
+        stopButton.isHidden = false
+        attentionAlert.isHidden = false
+        if audioRecorder == nil || !audioRecorder.isRecording {
+            startRecording()
+            view.backgroundColor = .red
+        }
+        displayMessageInterface()
+    }
+    private func createDocumentsDirectoryIfNeeded() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+        do {
+            try FileManager.default.createDirectory(at: documentsDirectory, withIntermediateDirectories: true, attributes: nil)
+            print("Директория 'Документы' создана успешно.")
+        } catch {
+            print("Ошибка при создании директории 'Документы': \(error.localizedDescription)")
+        }
     }
     private func displayMessageInterface() {
         let composeVC = MFMessageComposeViewController()
@@ -105,8 +126,7 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
         let userModel = viewModel.getUserModel()
         composeVC.recipients = [userModel.phoneContact1,userModel.phoneContact2,userModel.phoneContact3]
         guard let text = sosTextField.text else {return}
-        
-        let location = viewModel.getGoogleUrl {[weak self] googleUrl in
+        viewModel.getGoogleUrl {[weak self] googleUrl in
             guard let self = self else {return}
             self.showMessageViewController(composeVC, text: "\(text) \(googleUrl)")
         }
@@ -122,14 +142,12 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
     
     func startRecording() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recordedAudio.wav")
-
         let settings = [
             AVFormatIDKey: Int(kAudioFormatLinearPCM),
             AVSampleRateKey: 44100,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
-
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
@@ -164,42 +182,33 @@ class MainViewController: UIViewController, MFMessageComposeViewControllerDelega
             print("Ошибка при сохранении аудиофайла: \(error.localizedDescription)")
         }
     }
-    @objc
-    private func didTapSos() {
-        stopButton.isHidden = false
-        attentionAlert.isHidden = false
-        if audioRecorder == nil || !audioRecorder.isRecording {
-            startRecording()
-            view.backgroundColor = .red
-        }
-        displayMessageInterface()
-    }
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        controller.dismiss(animated: true, completion: nil)
-    }
+}
+// MARK: - DocumentViewController
+extension MainViewController: UIDocumentInteractionControllerDelegate {
     
-    // Вызывается при необходимости поделиться файлом
     func shareFile(at filePath: URL) {
         documentInteractionController = UIDocumentInteractionController(url: filePath)
         documentInteractionController?.delegate = self
         documentInteractionController?.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
     }
-
-    @objc
-    private func didTapStop() {
-        stopButton.isHidden = true
-        attentionAlert.isHidden = true
-        stopRecording()
-        view.backgroundColor = .white
+}
+// MARK: - MessageControllerDelegate
+extension MainViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
+// MARK: - AudioRecorderDelegate
 extension MainViewController: AVAudioRecorderDelegate {
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         saveAudioFile(recorder.url)
     }
 }
 // MARK: - TextFieldDelegate
 extension MainViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -207,6 +216,7 @@ extension MainViewController: UITextFieldDelegate {
 }
 // MARK: - UI
 private extension MainViewController {
+    
     func setView() {
         view.addSubview(grayLabel)
         view.addSubview(sosButton)
