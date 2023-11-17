@@ -90,7 +90,6 @@
 			children = (
 				180AD35C2B056DE200FE9B5F /* MainViewController.swift */,
 				180AD35E2B056DF400FE9B5F /* MainViewModel.swift */,
-				188088112B069D5000B2A66E /* MapService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -118,6 +117,14 @@
 				1880880F2B06697900B2A66E /* TextField.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		188088152B08083700B2A66E /* MapService */ = {
+			isa = PBXGroup;
+			children = (
+				188088112B069D5000B2A66E /* MapService.swift */,
+			);
+			path = MapService;
 			sourceTree = "<group>";
 		};
 		188E79882B0420C000CBAF36 = {
@@ -210,6 +217,7 @@
 		188E79B22B0423F100CBAF36 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				188088152B08083700B2A66E /* MapService */,
 				18EC94542B0538FB00B9E432 /* UserManager */,
 				18EC94462B04F8CA00B9E432 /* ControllerFactory */,
 			);

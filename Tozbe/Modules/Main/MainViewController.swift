@@ -104,9 +104,24 @@ class MainViewController: UIViewController {
     private func didTapSos() {
         stopButton.isHidden = false
         attentionAlert.isHidden = false
-        if audioRecorder == nil || !audioRecorder.isRecording {
-            startRecording()
-            view.backgroundColor = .red
+        
+        let recordingSession = AVAudioSession.sharedInstance()
+
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        if audioRecorder == nil || !audioRecorder.isRecording {
+                            startRecording()
+                            view.backgroundColor = .red
+                        }
+                    }
+                }
+            }
+        } catch {
+            fatalError()
         }
         displayMessageInterface()
     }
