@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+
 final class MainViewModel{
     private let userManager: UserManager
     private let mapService = MapService()

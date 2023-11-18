@@ -4,6 +4,38 @@
 //
 //  Created by Artur Imanbaev on 15.11.2023.
 //
+//import UIKit
+//
+//@UIApplicationMain
+//class AppDelegate: UIResponder, UIApplicationDelegate {
+//
+//    var window: UIWindow?
+//    var mainViewController: MainViewController?
+//
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        // Override point for customization after application launch.
+//        let userManager = UserManager()
+//        let viewModel = MainViewModel(userManager: userManager) // Assuming you have a MainViewModel
+//        mainViewController = MainViewController(viewModel: viewModel)
+//
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.rootViewController = mainViewController
+//        window?.makeKeyAndVisible()
+//
+//        return true
+//    }
+//
+//    func applicationWillResignActive(_ application: UIApplication) {
+//        handleAudioRecordingInBackground()
+//    }
+//
+//    private func handleAudioRecordingInBackground() {
+//        if let audioRecorder = mainViewController?.audioRecorder, audioRecorder.isRecording {
+//            mainViewController?.stopRecording()
+//            mainViewController?.saveAudioFile(audioRecorder.url)
+//        }
+//    }
+//}
 
 import UIKit
 import IQKeyboardManagerSwift

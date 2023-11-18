@@ -22,6 +22,7 @@
 		188E79A12B0420C200CBAF36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188E799F2B0420C200CBAF36 /* LaunchScreen.storyboard */; };
 		188E79AA2B04231D00CBAF36 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79A92B04231D00CBAF36 /* AppCoordinator.swift */; };
 		188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */; };
+		18ABB52D2B09083700299260 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABB52C2B09083700299260 /* TabBarViewController.swift */; };
 		18EC94482B04F8D800B9E432 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94472B04F8D800B9E432 /* ControllerFactory.swift */; };
 		18EC944B2B05029700B9E432 /* BooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */; };
 		18EC944F2B05335800B9E432 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944E2B05335800B9E432 /* Constants.swift */; };
@@ -52,6 +53,7 @@
 		188E79A22B0420C200CBAF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188E79A92B04231D00CBAF36 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCellViewModel.swift; sourceTree = "<group>"; };
+		18ABB52C2B09083700299260 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		18EC94472B04F8D800B9E432 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EC944E2B05335800B9E432 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		188E79AB2B04232100CBAF36 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18BBD4E12B0907E900205199 /* TabBar */,
 				180AD35B2B056DD200FE9B5F /* Main */,
 				18EC94572B053A4300B9E432 /* Registration */,
 				188E79B12B0423C300CBAF36 /* Books */,
@@ -222,6 +225,14 @@
 				18EC94462B04F8CA00B9E432 /* ControllerFactory */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		18BBD4E12B0907E900205199 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				18ABB52C2B09083700299260 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		18EC94462B04F8CA00B9E432 /* ControllerFactory */ = {
@@ -418,6 +429,7 @@
 				18EC94482B04F8D800B9E432 /* ControllerFactory.swift in Sources */,
 				18EC94532B05385800B9E432 /* BooksViewModel.swift in Sources */,
 				180AD35F2B056DF400FE9B5F /* MainViewModel.swift in Sources */,
+				18ABB52D2B09083700299260 /* TabBarViewController.swift in Sources */,
 				18EC946A2B05553D00B9E432 /* ButtonCollectionViewCell.swift in Sources */,
 				188088122B069D5000B2A66E /* MapService.swift in Sources */,
 				18EC94562B05391300B9E432 /* UserManager.swift in Sources */,

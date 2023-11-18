@@ -94,13 +94,6 @@ class MainViewController: UIViewController {
     }
     
     @objc
-    private func didTapStop() {
-        stopButton.isHidden = true
-        attentionAlert.isHidden = true
-        stopRecording()
-        view.backgroundColor = .white
-    }
-    @objc
     private func didTapSos() {
         stopButton.isHidden = false
         attentionAlert.isHidden = false
@@ -113,9 +106,9 @@ class MainViewController: UIViewController {
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        if audioRecorder == nil || !audioRecorder.isRecording {
-                            startRecording()
-                            view.backgroundColor = .red
+                        if self.audioRecorder == nil || !self.audioRecorder.isRecording {
+                            self.startRecording()
+                            self.view.backgroundColor = .red
                         }
                     }
                 }
@@ -124,6 +117,14 @@ class MainViewController: UIViewController {
             fatalError()
         }
         displayMessageInterface()
+    }
+    
+    @objc
+    private func didTapStop() {
+        stopButton.isHidden = true
+        attentionAlert.isHidden = true
+        stopRecording()
+        view.backgroundColor = .white
     }
     private func createDocumentsDirectoryIfNeeded() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -180,7 +181,7 @@ class MainViewController: UIViewController {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    private func saveAudioFile(_ audioFileURL: URL) {
+    func saveAudioFile(_ audioFileURL: URL) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         let formatter = DateFormatter()
@@ -191,13 +192,14 @@ class MainViewController: UIViewController {
 
         do {
             try FileManager.default.copyItem(at: audioFileURL, to: destinationURL)
-            shareFile(at: destinationURL)
             print("Аудиофайл успешно сохранен: \(destinationURL)")
+            shareFile(at: destinationURL)
         } catch {
             print("Ошибка при сохранении аудиофайла: \(error.localizedDescription)")
         }
     }
 }
+
 // MARK: - DocumentViewController
 extension MainViewController: UIDocumentInteractionControllerDelegate {
     
@@ -207,6 +209,7 @@ extension MainViewController: UIDocumentInteractionControllerDelegate {
         documentInteractionController?.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
     }
 }
+
 // MARK: - MessageControllerDelegate
 extension MainViewController: MFMessageComposeViewControllerDelegate {
     
@@ -214,6 +217,7 @@ extension MainViewController: MFMessageComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
 }
+
 // MARK: - AudioRecorderDelegate
 extension MainViewController: AVAudioRecorderDelegate {
     
@@ -229,6 +233,7 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
 }
+
 // MARK: - UI
 private extension MainViewController {
     
