@@ -49,6 +49,9 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
         }
         textField.placeholder = text
         imageView.image = UIImage(systemName: cellViewModel.image.rawValue)
+        if cellViewModel.text != "" {
+            textField.text = cellViewModel.textFieldText
+        } 
     }
     public func getData() -> String {
         guard let text = textField.text else {return ""}

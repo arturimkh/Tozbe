@@ -9,7 +9,7 @@ import UIKit
 import MessageUI
 import AVFoundation
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     private let grayLabel: UILabel = {
         let label = UILabel()

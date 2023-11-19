@@ -21,6 +21,7 @@ struct UserManager {
         if let encodedData = try? JSONEncoder().encode(model) {
             UserDefaults.standard.set(encodedData, forKey: "userModel")
         }
+        setLoggedInStatus(true)
     }
     func getData() -> UserModel{
         guard let savedData = UserDefaults.standard.data(forKey: "userModel") else {fatalError("no data")}

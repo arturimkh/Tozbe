@@ -16,13 +16,13 @@
 		188088102B06697900B2A66E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880880F2B06697900B2A66E /* TextField.swift */; };
 		188088122B069D5000B2A66E /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188088112B069D5000B2A66E /* MapService.swift */; };
 		188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79942B0420C000CBAF36 /* AppDelegate.swift */; };
-		188E79972B0420C000CBAF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79962B0420C000CBAF36 /* SceneDelegate.swift */; };
 		188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79982B0420C000CBAF36 /* BooksViewController.swift */; };
 		188E799E2B0420C200CBAF36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E799D2B0420C200CBAF36 /* Assets.xcassets */; };
 		188E79A12B0420C200CBAF36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188E799F2B0420C200CBAF36 /* LaunchScreen.storyboard */; };
 		188E79AA2B04231D00CBAF36 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79A92B04231D00CBAF36 /* AppCoordinator.swift */; };
 		188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */; };
 		18ABB52D2B09083700299260 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABB52C2B09083700299260 /* TabBarViewController.swift */; };
+		18ABB5302B09558B00299260 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABB52F2B09558B00299260 /* InfoViewController.swift */; };
 		18EC94482B04F8D800B9E432 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94472B04F8D800B9E432 /* ControllerFactory.swift */; };
 		18EC944B2B05029700B9E432 /* BooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */; };
 		18EC944F2B05335800B9E432 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944E2B05335800B9E432 /* Constants.swift */; };
@@ -46,7 +46,6 @@
 		188088112B069D5000B2A66E /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		188E79912B0420C000CBAF36 /* Tozbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tozbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E79942B0420C000CBAF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		188E79962B0420C000CBAF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		188E79982B0420C000CBAF36 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		188E799D2B0420C200CBAF36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		188E79A02B0420C200CBAF36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		188E79A92B04231D00CBAF36 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCellViewModel.swift; sourceTree = "<group>"; };
 		18ABB52C2B09083700299260 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		18ABB52F2B09558B00299260 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		18EC94472B04F8D800B9E432 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EC944E2B05335800B9E432 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -171,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				18BBD4E12B0907E900205199 /* TabBar */,
+				18ABB52E2B09557800299260 /* Info */,
 				180AD35B2B056DD200FE9B5F /* Main */,
 				18EC94572B053A4300B9E432 /* Registration */,
 				188E79B12B0423C300CBAF36 /* Books */,
@@ -192,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				188E79942B0420C000CBAF36 /* AppDelegate.swift */,
-				188E79962B0420C000CBAF36 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -225,6 +225,14 @@
 				18EC94462B04F8CA00B9E432 /* ControllerFactory */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		18ABB52E2B09557800299260 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				18ABB52F2B09558B00299260 /* InfoViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		18BBD4E12B0907E900205199 /* TabBar */ = {
@@ -424,7 +432,6 @@
 				188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */,
 				188E79992B0420C000CBAF36 /* BooksViewController.swift in Sources */,
 				188E79952B0420C000CBAF36 /* AppDelegate.swift in Sources */,
-				188E79972B0420C000CBAF36 /* SceneDelegate.swift in Sources */,
 				18EC944B2B05029700B9E432 /* BooksCollectionViewCell.swift in Sources */,
 				18EC94482B04F8D800B9E432 /* ControllerFactory.swift in Sources */,
 				18EC94532B05385800B9E432 /* BooksViewModel.swift in Sources */,
@@ -436,6 +443,7 @@
 				180AD35D2B056DE200FE9B5F /* MainViewController.swift in Sources */,
 				188088072B063FC700B2A66E /* BookViewController.swift in Sources */,
 				18EC944F2B05335800B9E432 /* Constants.swift in Sources */,
+				18ABB5302B09558B00299260 /* InfoViewController.swift in Sources */,
 				18EC94672B05529800B9E432 /* SwitchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

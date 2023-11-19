@@ -5,8 +5,8 @@
 //  Created by Artur Imanbaev on 15.11.2023.
 //
 
-import Foundation
 import UIKit
+
 final class AppCoordinator{
     static let shared = AppCoordinator()
     

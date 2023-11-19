@@ -14,9 +14,11 @@ struct TextFieldsCollectionViewCellViewModel {
     let text: String
     let image: ImageTextFieldTypes
     let nessecary: Bool
-    init(text: String, image: ImageTextFieldTypes, nessecary: Bool = false) {
+    let textFieldText: String
+    init(text: String, image: ImageTextFieldTypes, nessecary: Bool = false, textFieldText: String) {
         self.text = text
         self.image = image
         self.nessecary = nessecary
+        self.textFieldText = textFieldText
     }
 }

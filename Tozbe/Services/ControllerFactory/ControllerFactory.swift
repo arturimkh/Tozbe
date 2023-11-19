@@ -12,7 +12,8 @@ enum ControllerFactoryType {
     case registration
     case main
     case book(String)
-    //case tabBar
+    case tabBar
+    case info
 }
 
 final class ControllerFactory{
@@ -36,9 +37,12 @@ final class ControllerFactory{
         case .book(let name):
             let viewController = BookViewController(name: name)
             return viewController
-//        case .tabBar:
-//            let tabBar = SYNTabBarController()
-//            return tabBar
+        case .tabBar:
+            let tabBar = TabBarViewController()
+            return tabBar
+        case .info:
+            let info = InfoViewController()
+            return info
         }
     }
 }

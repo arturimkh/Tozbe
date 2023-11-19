@@ -47,7 +47,6 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setCollectionView()
-        viewModel.delegate = self
     }
 }
 // MARK: - UI
@@ -79,6 +78,8 @@ extension RegistrationViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let userModel = viewModel.getModel()
+        
         switch indexPath.section {
             
         case Sections.information.rawValue:
@@ -90,34 +91,41 @@ extension RegistrationViewController: UICollectionViewDataSource{
             switch indexPath.row{
                 
             case Information.phone.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone,nessecary: true)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone,nessecary: true,textFieldText: userModel.phoneNumber)
+                cell.configure(with: cellViewModel)
+
             case Information.contact1.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone,nessecary: true)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone,nessecary: true,textFieldText: userModel.phoneContact1)
+                cell.configure(with: cellViewModel)
+
             case Information.contact2.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 2", image: .phone)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 2", image: .phone,textFieldText: userModel.phoneContact2)
+                cell.configure(with: cellViewModel)
+
             case Information.contact3.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 3", image: .phone)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 3", image: .phone,textFieldText: userModel.phoneContact3)
+                cell.configure(with: cellViewModel)
+
             case Information.timeOfDictaphone.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location,nessecary: true)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location,nessecary: true,textFieldText: userModel.audioLenght)
+                cell.configure(with: cellViewModel)
+
             case Information.locationUpdate.rawValue:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location,nessecary: true)
-                
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location,nessecary: true,textFieldText: userModel.locationDelayLenght)
+                cell.configure(with: cellViewModel)
+
             default:
-                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone)
+                cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone,textFieldText: "")
             }
-            cell.configure(with: cellViewModel)
             return cell
+            
         case Sections.isLocationUpdate.rawValue:
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SwitchCollectionViewCell.identifier, for: indexPath) as! SwitchCollectionViewCell
             return cell
             
         case Sections.saveButton.rawValue:
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.identifier, for: indexPath) as! ButtonCollectionViewCell
             cell.configure(delegate: self)
             return cell
@@ -149,12 +157,5 @@ extension RegistrationViewController: ButtonCollectionViewCellDelegate {
             }
         }
         viewModel.saveModel(dataSourceString)
-    }
-}
-extension RegistrationViewController: RegistrationViewModelDelegate {
-    func didLoadData() {
-        let mainVC = ControllerFactory.create(.main)
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.pushViewController(mainVC, animated: true)
     }
 }

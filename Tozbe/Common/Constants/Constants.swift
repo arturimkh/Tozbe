@@ -10,4 +10,5 @@ enum Constants{
     static let arrayOfNameBooks = ["cafeAbroad", "chikenInHouse", "GoodMood",
                                    "historiesAndAnt", "Murakami", "noIsNo",
                                    "richDad", "shine", "timeLess"]
+    static let arrayOfInfoButtons = ["Кризисные центры организации" ,"Контакты помощи" ,"Информация про абьюз"]
 }

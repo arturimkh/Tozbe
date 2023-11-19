@@ -60,13 +60,8 @@ final class BooksViewController: UIViewController {
     }
     @objc
     private func didTap() {
-        let isLoggedIn = viewModel.didUserLoggedIn()
-        if isLoggedIn {
-            
-        } else {
-            let registrationVC = ControllerFactory.create(.registration)
-            self.navigationController?.pushViewController(registrationVC, animated: true)
-        }
+        let tabBar = ControllerFactory.create(.tabBar)
+        self.navigationController?.pushViewController(tabBar, animated: true)
     }
 }
 
