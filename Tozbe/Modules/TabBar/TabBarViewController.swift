@@ -9,10 +9,12 @@ import UIKit
 
 final class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
     private let userManager = UserManager()
+    var shadowView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBarUI()
         configureTabBarItems()
+        addCustomTabBarView()
     }
     private func configureTabBarItems() {
         var images = [ UIImage(systemName: "gearshape"), UIImage(systemName: "sos.circle"), UIImage(systemName: "info.circle")]
@@ -44,5 +46,29 @@ final class TabBarViewController: UITabBarController,UITabBarControllerDelegate 
         appearance.shadowImage = nil
         appearance.shadowColor = nil
         tabBar.standardAppearance = appearance
+    }
+    private func addCustomTabBarView() {
+        shadowView.frame = tabBar.frame
+        
+        addShadowLayer(at: 0, radius: 2, height: -2)
+        addShadowLayer(at: 1, radius: 8, height: -2)
+        addShadowLayer(at: 2, radius: 38, height: -7)
+        
+        view.addSubview(shadowView)
+        view.bringSubviewToFront(tabBar)
+    }
+    
+    private func addShadowLayer(at layer: UInt32, radius: CGFloat, opacity: Float = 0.34, height: Int) {
+        let shadowLayer = CALayer()
+        shadowLayer.frame = tabBar.bounds
+        shadowLayer.shadowPath = UIBezierPath(roundedRect: shadowView.bounds, cornerRadius: 10).cgPath
+        shadowLayer.shadowColor = UIColor.black.cgColor
+        shadowLayer.shadowRadius = radius
+        shadowLayer.shadowOpacity = opacity
+        shadowLayer.shadowOffset = CGSize(width: 0, height: height)
+        shadowLayer.cornerRadius = tabBar.layer.cornerRadius + 1
+        shadowLayer.backgroundColor = UIColor.clear.cgColor
+        
+        shadowView.layer.insertSublayer(shadowLayer, at: layer)
     }
 }
