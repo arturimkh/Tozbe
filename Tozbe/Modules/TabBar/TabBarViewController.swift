@@ -17,11 +17,11 @@ final class TabBarViewController: UITabBarController,UITabBarControllerDelegate 
         addCustomTabBarView()
     }
     private func configureTabBarItems() {
-        var images = [ UIImage(systemName: "gearshape"), UIImage(systemName: "sos.circle"), UIImage(systemName: "info.circle")]
-        var arrayOfControllers: [UINavigationController] = [
-            UINavigationController(rootViewController: ControllerFactory.create(.registration)),
-            UINavigationController(rootViewController: ControllerFactory.create(.main)),
-            UINavigationController(rootViewController: ControllerFactory.create(.info))
+        var images = [ UIImage(systemName: "gearshape"), UIImage(systemName: "person"), UIImage(systemName: "info.circle")]
+        var arrayOfControllers: [UIViewController] = [
+             ControllerFactory.create(.registration),
+             ControllerFactory.create(.main),
+             ControllerFactory.create(.info)
         ]
         if userManager.isUserLoggedIn() {
             arrayOfControllers.swapAt(0, 1)

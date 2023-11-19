@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TextFieldsCollectionViewCellDelegate: AnyObject {
+    func showAlert()
+}
+
 class TextFieldsCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String {
@@ -33,6 +37,7 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 10)
         return label
     }()
+    weak var delegate: TextFieldsCollectionViewCellDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConstraints()
@@ -42,20 +47,29 @@ class TextFieldsCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    public func configure(with cellViewModel: TextFieldsCollectionViewCellViewModel) {
+    public func configure(with cellViewModel: TextFieldsCollectionViewCellViewModel,delegate: TextFieldsCollectionViewCellDelegate) {
+        self.delegate = delegate
         let text = cellViewModel.text
         if cellViewModel.nessecary {
             nessecaryTextlabel.text = "*Обязательно"
+        } else {
+            nessecaryTextlabel.text = ""
         }
         textField.placeholder = text
         imageView.image = UIImage(systemName: cellViewModel.image.rawValue)
-        if cellViewModel.text != "" {
-            textField.text = cellViewModel.textFieldText
-        } 
+        textField.text = cellViewModel.textFieldText
+        validateField(cellViewModel.nessecary)
     }
     public func getData() -> String {
         guard let text = textField.text else {return ""}
         return text
+    }
+    private func validateField(_ isNessecary: Bool) {
+        if isNessecary {
+            if textField.text == "" {
+                delegate?.showAlert()
+            }
+        }
     }
 }
 

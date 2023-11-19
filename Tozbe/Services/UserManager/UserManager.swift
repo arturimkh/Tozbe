@@ -24,7 +24,7 @@ struct UserManager {
         setLoggedInStatus(true)
     }
     func getData() -> UserModel{
-        guard let savedData = UserDefaults.standard.data(forKey: "userModel") else {fatalError("no data")}
+        guard let savedData = UserDefaults.standard.data(forKey: "userModel") else {return UserModel(phoneNumber: "", phoneContact1: "", phoneContact2: "", phoneContact3: "", audioLenght: "", locationDelayLenght: "")}
         guard let data = try? JSONDecoder().decode(UserModel.self, from: savedData) else {fatalError("unable to decode")}
         return data
     }

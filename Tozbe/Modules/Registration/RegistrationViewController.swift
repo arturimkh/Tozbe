@@ -47,6 +47,7 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setCollectionView()
+        viewModel.delegate = self
     }
 }
 // MARK: - UI
@@ -92,27 +93,27 @@ extension RegistrationViewController: UICollectionViewDataSource{
                 
             case Information.phone.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Номер телефона", image: .phone,nessecary: true,textFieldText: userModel.phoneNumber)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             case Information.contact1.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 1", image: .phone,nessecary: true,textFieldText: userModel.phoneContact1)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             case Information.contact2.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 2", image: .phone,textFieldText: userModel.phoneContact2)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             case Information.contact3.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Доверенный контакт 3", image: .phone,textFieldText: userModel.phoneContact3)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             case Information.timeOfDictaphone.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Продолжительность аудиозаписи", image: .location,nessecary: true,textFieldText: userModel.audioLenght)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             case Information.locationUpdate.rawValue:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "Отправлять новую локацию", image: .location,nessecary: true,textFieldText: userModel.locationDelayLenght)
-                cell.configure(with: cellViewModel)
+                cell.configure(with: cellViewModel, delegate: self)
 
             default:
                 cellViewModel = TextFieldsCollectionViewCellViewModel(text: "", image: .phone,textFieldText: "")
@@ -142,6 +143,7 @@ extension RegistrationViewController: UICollectionViewDelegateFlowLayout {
 }
 extension RegistrationViewController: ButtonCollectionViewCellDelegate {
     func didTapSave() {
+        dataSourceString = []
         for section in 0..<collectionView.numberOfSections {
             for item in 0..<collectionView.numberOfItems(inSection: section) {
                 let indexPath = IndexPath(item: item, section: section)
@@ -157,5 +159,22 @@ extension RegistrationViewController: ButtonCollectionViewCellDelegate {
             }
         }
         viewModel.saveModel(dataSourceString)
+    }
+}
+extension RegistrationViewController: TextFieldsCollectionViewCellDelegate {
+    func showAlert() {
+        let title = "Внимание"
+        let message = "Введите все обязательные поля"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+extension RegistrationViewController: RegistrationViewModelDelegate {
+    func didLoadData() {
+        collectionView.reloadData()
     }
 }

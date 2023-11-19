@@ -6,8 +6,12 @@
 //
 
 import Foundation
+protocol RegistrationViewModelDelegate: AnyObject {
+    func didLoadData()
+}
 class RegistrationViewModel {
     private let userManager: UserManager
+    weak var delegate: RegistrationViewModelDelegate?
     init(userManager: UserManager) {
         self.userManager = userManager
     }
@@ -22,5 +26,6 @@ class RegistrationViewModel {
                                   audioLenght: array[4],
                                   locationDelayLenght: array[5])
         userManager.saveData(model: userModel)
+        delegate?.didLoadData()
     }
 }
