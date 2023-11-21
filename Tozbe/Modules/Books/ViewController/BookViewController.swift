@@ -28,7 +28,7 @@ final class BookViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setView()
-        if let path = Bundle.main.path(forResource: "richDad", ofType: "pdf") {
+        if let path = Bundle.main.path(forResource: "\(name)", ofType: "pdf") {
             if let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
                 pdfView.displayMode = .singlePageContinuous
                 pdfView.autoScales = true

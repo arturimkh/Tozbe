@@ -14,6 +14,7 @@ enum ControllerFactoryType {
     case book(String)
     case tabBar
     case info
+    case tutorial
 }
 
 final class ControllerFactory{
@@ -43,6 +44,9 @@ final class ControllerFactory{
         case .info:
             let info = InfoViewController()
             return info
+        case .tutorial:
+            let tutorial = PhotoViewController()
+            return tutorial
         }
     }
 }

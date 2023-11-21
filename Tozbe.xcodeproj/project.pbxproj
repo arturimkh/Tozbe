@@ -10,6 +10,14 @@
 		180AD3592B055E0F00FE9B5F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD3582B055E0F00FE9B5F /* UserModel.swift */; };
 		180AD35D2B056DE200FE9B5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD35C2B056DE200FE9B5F /* MainViewController.swift */; };
 		180AD35F2B056DF400FE9B5F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AD35E2B056DF400FE9B5F /* MainViewModel.swift */; };
+		184E0D872B0D493B00EA05FB /* shine.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D7E2B0D493A00EA05FB /* shine.pdf */; };
+		184E0D892B0D493B00EA05FB /* timeLess.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D802B0D493B00EA05FB /* timeLess.pdf */; };
+		184E0D8A2B0D493B00EA05FB /* Murakami.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D812B0D493B00EA05FB /* Murakami.pdf */; };
+		184E0D8B2B0D493B00EA05FB /* historiesAndAnt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D822B0D493B00EA05FB /* historiesAndAnt.pdf */; };
+		184E0D8C2B0D493B00EA05FB /* cafeAbroad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D832B0D493B00EA05FB /* cafeAbroad.pdf */; };
+		184E0D8D2B0D493B00EA05FB /* GoodMood.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D842B0D493B00EA05FB /* GoodMood.pdf */; };
+		184E0D8E2B0D493B00EA05FB /* chikenInHouse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D852B0D493B00EA05FB /* chikenInHouse.pdf */; };
+		184E0D8F2B0D493B00EA05FB /* noIsNo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 184E0D862B0D493B00EA05FB /* noIsNo.pdf */; };
 		188088072B063FC700B2A66E /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188088062B063FC700B2A66E /* BookViewController.swift */; };
 		188088092B06421F00B2A66E /* richDad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 188088082B06421F00B2A66E /* richDad.pdf */; };
 		1880880D2B06677A00B2A66E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1880880C2B06677A00B2A66E /* IQKeyboardManagerSwift */; };
@@ -23,6 +31,7 @@
 		188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */; };
 		18ABB52D2B09083700299260 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABB52C2B09083700299260 /* TabBarViewController.swift */; };
 		18ABB5302B09558B00299260 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABB52F2B09558B00299260 /* InfoViewController.swift */; };
+		18CE108F2B0CFEF2008C16CE /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE108E2B0CFEF2008C16CE /* PhotoViewController.swift */; };
 		18EC94482B04F8D800B9E432 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94472B04F8D800B9E432 /* ControllerFactory.swift */; };
 		18EC944B2B05029700B9E432 /* BooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */; };
 		18EC944F2B05335800B9E432 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC944E2B05335800B9E432 /* Constants.swift */; };
@@ -40,6 +49,14 @@
 		180AD3582B055E0F00FE9B5F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		180AD35C2B056DE200FE9B5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		180AD35E2B056DF400FE9B5F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		184E0D7E2B0D493A00EA05FB /* shine.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = shine.pdf; sourceTree = "<group>"; };
+		184E0D802B0D493B00EA05FB /* timeLess.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = timeLess.pdf; sourceTree = "<group>"; };
+		184E0D812B0D493B00EA05FB /* Murakami.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Murakami.pdf; sourceTree = "<group>"; };
+		184E0D822B0D493B00EA05FB /* historiesAndAnt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = historiesAndAnt.pdf; sourceTree = "<group>"; };
+		184E0D832B0D493B00EA05FB /* cafeAbroad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = cafeAbroad.pdf; sourceTree = "<group>"; };
+		184E0D842B0D493B00EA05FB /* GoodMood.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = GoodMood.pdf; sourceTree = "<group>"; };
+		184E0D852B0D493B00EA05FB /* chikenInHouse.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = chikenInHouse.pdf; sourceTree = "<group>"; };
+		184E0D862B0D493B00EA05FB /* noIsNo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = noIsNo.pdf; sourceTree = "<group>"; };
 		188088062B063FC700B2A66E /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		188088082B06421F00B2A66E /* richDad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = richDad.pdf; sourceTree = "<group>"; };
 		1880880F2B06697900B2A66E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -54,6 +71,7 @@
 		188E79B32B04243800CBAF36 /* BooksCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCellViewModel.swift; sourceTree = "<group>"; };
 		18ABB52C2B09083700299260 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		18ABB52F2B09558B00299260 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		18CE108E2B0CFEF2008C16CE /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		18EC94472B04F8D800B9E432 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		18EC944A2B05029700B9E432 /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EC944E2B05335800B9E432 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -109,6 +127,14 @@
 			isa = PBXGroup;
 			children = (
 				188088082B06421F00B2A66E /* richDad.pdf */,
+				184E0D802B0D493B00EA05FB /* timeLess.pdf */,
+				184E0D7E2B0D493A00EA05FB /* shine.pdf */,
+				184E0D812B0D493B00EA05FB /* Murakami.pdf */,
+				184E0D832B0D493B00EA05FB /* cafeAbroad.pdf */,
+				184E0D862B0D493B00EA05FB /* noIsNo.pdf */,
+				184E0D822B0D493B00EA05FB /* historiesAndAnt.pdf */,
+				184E0D852B0D493B00EA05FB /* chikenInHouse.pdf */,
+				184E0D842B0D493B00EA05FB /* GoodMood.pdf */,
 			);
 			path = BooksPdfs;
 			sourceTree = "<group>";
@@ -148,6 +174,7 @@
 		188E79932B0420C000CBAF36 /* Tozbe */ = {
 			isa = PBXGroup;
 			children = (
+				188E79AD2B04233C00CBAF36 /* Application */,
 				188E79A82B04230A00CBAF36 /* Coordinators */,
 				188E79AB2B04232100CBAF36 /* Modules */,
 				1880880E2B06696C00B2A66E /* View */,
@@ -170,6 +197,7 @@
 		188E79AB2B04232100CBAF36 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18CE10892B0CFEB6008C16CE /* Tutorial */,
 				18BBD4E12B0907E900205199 /* TabBar */,
 				18ABB52E2B09557800299260 /* Info */,
 				180AD35B2B056DD200FE9B5F /* Main */,
@@ -183,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				18EC944D2B05334800B9E432 /* Constants */,
-				188E79AD2B04233C00CBAF36 /* Application */,
 				188E79AE2B04235100CBAF36 /* Resources */,
 			);
 			path = Common;
@@ -241,6 +268,14 @@
 				18ABB52C2B09083700299260 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		18CE10892B0CFEB6008C16CE /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				18CE108E2B0CFEF2008C16CE /* PhotoViewController.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		18EC94462B04F8CA00B9E432 /* ControllerFactory */ = {
@@ -380,6 +415,7 @@
 				TargetAttributes = {
 					188E79902B0420C000CBAF36 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -409,8 +445,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184E0D872B0D493B00EA05FB /* shine.pdf in Resources */,
+				184E0D8E2B0D493B00EA05FB /* chikenInHouse.pdf in Resources */,
 				188E79A12B0420C200CBAF36 /* LaunchScreen.storyboard in Resources */,
+				184E0D8D2B0D493B00EA05FB /* GoodMood.pdf in Resources */,
+				184E0D8C2B0D493B00EA05FB /* cafeAbroad.pdf in Resources */,
+				184E0D8B2B0D493B00EA05FB /* historiesAndAnt.pdf in Resources */,
+				184E0D8A2B0D493B00EA05FB /* Murakami.pdf in Resources */,
+				184E0D892B0D493B00EA05FB /* timeLess.pdf in Resources */,
 				188E799E2B0420C200CBAF36 /* Assets.xcassets in Resources */,
+				184E0D8F2B0D493B00EA05FB /* noIsNo.pdf in Resources */,
 				188088092B06421F00B2A66E /* richDad.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +471,7 @@
 				188E79AA2B04231D00CBAF36 /* AppCoordinator.swift in Sources */,
 				188088102B06697900B2A66E /* TextField.swift in Sources */,
 				18EC945B2B053ACB00B9E432 /* RegistrationViewModel.swift in Sources */,
+				18CE108F2B0CFEF2008C16CE /* PhotoViewController.swift in Sources */,
 				18EC94592B053A5300B9E432 /* RegistrationViewController.swift in Sources */,
 				18EC945F2B05443400B9E432 /* TextFieldsCollectionViewCell.swift in Sources */,
 				188E79B42B04243800CBAF36 /* BooksCellViewModel.swift in Sources */,
@@ -581,6 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82UJBY7FF;
@@ -599,6 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arturImanbaev.Tozbe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -609,6 +656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R82UJBY7FF;
