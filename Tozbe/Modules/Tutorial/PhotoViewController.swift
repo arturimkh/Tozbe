@@ -20,8 +20,27 @@ class PhotoViewController: UIViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         return collectionView
     }()
-    
-    let photos = ["xmark", "house", "play", "ball"]
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.numberOfPages = photos.count
+        pageControl.currentPage = 0
+        pageControl.tintColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        return pageControl
+    }()
+    private lazy var acceptButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Понятно", for: .normal)
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .systemBlue
+        button.isHidden = true
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.isUserInteractionEnabled
+        return button
+    }()
+    let photos = ["xmark", "house", "play", "sos"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +48,33 @@ class PhotoViewController: UIViewController {
         setView()
         setConstraints()
     }
+    func showAcceptButton() {
+        acceptButton.isHidden = false
+    }
+    @objc
+    private func didTapButton() {
+        dismiss(animated: true)
+    }
 }
 // MARK: - UI
 private extension PhotoViewController {
     func setView() {
         view.addSubview(collectionView)
+        view.addSubview(pageControl)
+        collectionView.addSubview(acceptButton)
     }
     func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-
+            
+            pageControl.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor,constant: -200),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            acceptButton.topAnchor.constraint(equalTo: view.topAnchor,constant: 70),
+            acceptButton.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -20)
         ])
     }
     func createImageGalerySection() -> NSCollectionLayoutSection{
@@ -86,6 +119,12 @@ extension PhotoViewController: UICollectionViewDataSource{
         cell.contentView.addSubview(imageView)
         cell.backgroundColor = .red
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        pageControl.currentPage = indexPath.row
+        if indexPath.row == photos.count - 1{
+            showAcceptButton()
+        }
     }
 }
 

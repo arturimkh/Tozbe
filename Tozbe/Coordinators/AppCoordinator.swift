@@ -9,7 +9,7 @@ import UIKit
 
 final class AppCoordinator{
     static let shared = AppCoordinator()
-    
+    private let userManager = UserManager()
     private var _window: UIWindow? {
         UIApplication
             .shared

@@ -50,6 +50,10 @@ final class BooksViewController: UIViewController {
         setView()
         setConstraints()
         appendImageDataSource()
+        if !viewModel.didUserLoggedIn() {
+            let tutorialVC = ControllerFactory.create(.tutorial)
+            present(tutorialVC, animated: true)
+        }
     }
     private func appendImageDataSource() {
         Constants.arrayOfNameBooks.forEach { nameImage in
