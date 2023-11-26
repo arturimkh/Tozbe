@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     private func handleAudioRecordingInBackground() {
         if let navigationController = window?.rootViewController as? UINavigationController,
-           let mainViewController = navigationController.viewControllers.last as? MainViewController,
+           let tabBarViewController = navigationController.viewControllers.last as? UITabBarController,
+           let mainViewController = tabBarViewController.selectedViewController as? MainViewController,
            let audioRecorder = mainViewController.audioRecorder,
            audioRecorder.isRecording {
             mainViewController.stopRecording()

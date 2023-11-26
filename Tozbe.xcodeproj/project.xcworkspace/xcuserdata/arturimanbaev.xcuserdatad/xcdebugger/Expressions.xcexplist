@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AppDelegate.handleAudioRecordingInBackground():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "audioRecorder.url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BookViewController.viewDidLoad():BookViewController.swift">
          <PersistentStrings>
             <PersistentString
