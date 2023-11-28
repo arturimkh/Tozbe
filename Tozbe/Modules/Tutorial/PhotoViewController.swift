@@ -40,7 +40,7 @@ class PhotoViewController: UIViewController {
         button.isUserInteractionEnabled
         return button
     }()
-    let photos = ["xmark", "house", "play", "sos"]
+    let photos = ["firstTutorial", "secondTutorial", "thirdTutorial", "fourthTutorial"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,10 +114,10 @@ extension PhotoViewController: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
         let imageView = UIImageView(frame: cell.contentView.bounds)
-        imageView.image = UIImage(systemName: photos[indexPath.item])
+        imageView.image = UIImage(named: photos[indexPath.item])
         imageView.contentMode = .scaleAspectFit
         cell.contentView.addSubview(imageView)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .systemGray
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

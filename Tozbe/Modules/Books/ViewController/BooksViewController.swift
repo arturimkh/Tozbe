@@ -50,7 +50,7 @@ final class BooksViewController: UIViewController {
         setView()
         setConstraints()
         appendImageDataSource()
-        if !viewModel.didUserLoggedIn() {
+        if viewModel.didUserLoggedIn() {
             let tutorialVC = ControllerFactory.create(.tutorial)
             present(tutorialVC, animated: true)
         }
