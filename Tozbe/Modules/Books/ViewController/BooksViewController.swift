@@ -26,7 +26,6 @@ final class BooksViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
-        button.backgroundColor = .red
         button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         return button
     }()
@@ -50,7 +49,7 @@ final class BooksViewController: UIViewController {
         setView()
         setConstraints()
         appendImageDataSource()
-        if viewModel.didUserLoggedIn() {
+        if !viewModel.didUserLoggedIn() {
             let tutorialVC = ControllerFactory.create(.tutorial)
             present(tutorialVC, animated: true)
         }
