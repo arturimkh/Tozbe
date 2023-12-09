@@ -43,6 +43,8 @@
 		18EC94632B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94622B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift */; };
 		18EC94672B05529800B9E432 /* SwitchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94662B05529800B9E432 /* SwitchCollectionViewCell.swift */; };
 		18EC946A2B05553D00B9E432 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC94692B05553D00B9E432 /* ButtonCollectionViewCell.swift */; };
+		39A00B862B24F9D3003A1E86 /* Women's Shelters by Kazakhstan Regions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 39A00B842B24F9D3003A1E86 /* Women's Shelters by Kazakhstan Regions.pdf */; };
+		39A00B872B24F9D3003A1E86 /* Контакты помощи.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 39A00B852B24F9D3003A1E86 /* Контакты помощи.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		18EC94622B0544C300B9E432 /* TextFieldsCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		18EC94662B05529800B9E432 /* SwitchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EC94692B05553D00B9E432 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		39A00B842B24F9D3003A1E86 /* Women's Shelters by Kazakhstan Regions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Women's Shelters by Kazakhstan Regions.pdf"; sourceTree = "<group>"; };
+		39A00B852B24F9D3003A1E86 /* Контакты помощи.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Контакты помощи.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 		1880880A2B06425500B2A66E /* BooksPdfs */ = {
 			isa = PBXGroup;
 			children = (
+				39A00B852B24F9D3003A1E86 /* Контакты помощи.pdf */,
+				39A00B842B24F9D3003A1E86 /* Women's Shelters by Kazakhstan Regions.pdf */,
 				188088082B06421F00B2A66E /* richDad.pdf */,
 				184E0D802B0D493B00EA05FB /* timeLess.pdf */,
 				184E0D7E2B0D493A00EA05FB /* shine.pdf */,
@@ -447,6 +453,8 @@
 			files = (
 				184E0D872B0D493B00EA05FB /* shine.pdf in Resources */,
 				184E0D8E2B0D493B00EA05FB /* chikenInHouse.pdf in Resources */,
+				39A00B862B24F9D3003A1E86 /* Women's Shelters by Kazakhstan Regions.pdf in Resources */,
+				39A00B872B24F9D3003A1E86 /* Контакты помощи.pdf in Resources */,
 				188E79A12B0420C200CBAF36 /* LaunchScreen.storyboard in Resources */,
 				184E0D8D2B0D493B00EA05FB /* GoodMood.pdf in Resources */,
 				184E0D8C2B0D493B00EA05FB /* cafeAbroad.pdf in Resources */,

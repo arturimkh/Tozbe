@@ -37,10 +37,10 @@ class PhotoViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.isHidden = true
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        button.isUserInteractionEnabled
+        button.isUserInteractionEnabled = true
         return button
     }()
-    let photos = ["firstTutorial", "secondTutorial", "thirdTutorial", "fourthTutorial"]
+    let photos = Constants.arrayOftutorialPhotosName
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ private extension PhotoViewController {
     func setView() {
         view.addSubview(collectionView)
         view.addSubview(pageControl)
-        collectionView.addSubview(acceptButton)
+        view.addSubview(acceptButton)
     }
     func setConstraints() {
         NSLayoutConstraint.activate([

@@ -25,20 +25,31 @@ final class InfoViewController: UIViewController {
         setView()
         setConstraints()
         Constants.arrayOfInfoButtons.forEach { nameButton in
-            let button = createButton(nameButton)
+            let button = createButton(text: nameButton)
             buttonStackView.addArrangedSubview(button)
         }
+    }
+    @objc
+    private func didTapOnButton(sender: UIButton) {
+        let pdfBookVc = ControllerFactory.create(.book(Constants.arrayOfInfoContacts[sender.tag]))
+        self.navigationController?.pushViewController(pdfBookVc, animated: true)
     }
     
 }
 private extension InfoViewController {
-    func createButton(_ text: String) -> UIButton {
+    func createButton(text: String) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(text, for: .normal)
         button.backgroundColor = .systemGray
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(didTapOnButton(sender:)), for: .touchUpInside)
+        if text == "Кризисные центры организации" {
+            button.tag = 0
+        } else {
+            button.tag = 1
+        }
         return button
     }
     func setView() {

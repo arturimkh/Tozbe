@@ -14,6 +14,7 @@ enum ControllerFactoryType {
     case book(String)
     case tabBar
     case info
+    case detailInfo([String])
     case tutorial
 }
 
@@ -39,14 +40,17 @@ final class ControllerFactory{
             let viewController = BookViewController(name: name)
             return viewController
         case .tabBar:
-            let tabBar = TabBarViewController()
-            return tabBar
+            let viewController = TabBarViewController()
+            return viewController
         case .info:
-            let info = InfoViewController()
-            return info
+            let viewController = InfoViewController()
+            return viewController
         case .tutorial:
-            let tutorial = PhotoViewController()
-            return tutorial
+            let viewController = PhotoViewController()
+            return viewController
+        case .detailInfo(let text):
+            let viewController = DetailInfoViewControler(text: text)
+            return viewController
         }
     }
 }
