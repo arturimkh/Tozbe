@@ -139,8 +139,15 @@ final class MainViewController: UIViewController {
     private func displayMessageInterface() {
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
+        
         let userModel = viewModel.getUserModel()
-        composeVC.recipients = [userModel.phoneContact1,userModel.phoneContact2,userModel.phoneContact3]
+        
+        if userModel.phoneContact2 == "" && userModel.phoneContact3 == "" {
+            composeVC.recipients = [userModel.phoneContact1]
+        } else if userModel.phoneContact3 == "" {
+            composeVC.recipients = [userModel.phoneContact1, userModel.phoneContact2]
+        }
+        
         guard let text = sosTextField.text else {return}
         viewModel.getGoogleUrl {[weak self] googleUrl in
             guard let self = self else {return}
@@ -206,7 +213,7 @@ extension MainViewController: UIDocumentInteractionControllerDelegate {
     func shareFile(at filePath: URL) {
         documentInteractionController = UIDocumentInteractionController(url: filePath)
         documentInteractionController?.delegate = self
-        documentInteractionController?.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+        documentInteractionController?.presentOptionsMenu(from: CGRectZero, in: self.view, animated: true)
     }
 }
 

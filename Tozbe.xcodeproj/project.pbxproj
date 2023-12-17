@@ -637,10 +637,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R82UJBY7FF;
+				DEVELOPMENT_TEAM = YDZU5F87KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tozbe/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow on location usage";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "we want to use recording";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -650,7 +651,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arturImanbaev.Tozbe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Saniya.Tozbe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -667,10 +668,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R82UJBY7FF;
+				DEVELOPMENT_TEAM = YDZU5F87KA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tozbe/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "please allow on location usage";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "we want to use recording";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -680,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arturImanbaev.Tozbe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Saniya.Tozbe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
